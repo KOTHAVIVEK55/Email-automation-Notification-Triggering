@@ -38,6 +38,9 @@ File Retrieval (Resume + LOR from Drive)
 Email Personalization
       ↓
 Gmail Dispatch ✅
+
+![Email Referral Workflow](./Email referral workflow.png)
+
 🌟 Key Highlights
 
 ✅ Zero manual effort after setup
@@ -73,6 +76,9 @@ Match Found?
       ↓
 Telegram Notification Triggered ✅
 "HR replied: hr@company.com"
+
+![Notification Triggering Workflow](./Notification Triggering Workflow.png)
+
 As telegram give bot as free using BotFather i have created seperated Bot for notification triggering mechaniscm.
 
 🌟 Key Highlights
