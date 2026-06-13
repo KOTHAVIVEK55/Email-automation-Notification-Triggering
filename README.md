@@ -1,120 +1,108 @@
-Automated Email Referral & HR Reply Tracker System
+<div align="center">
+  <h1>🚀 Automated Email Outreach & HR Reply Tracker</h1>
+  <p><b>A zero-cost, fully automated job application pipeline built to eliminate manual outreach and track recruiter replies in real-time.</b></p>
+  
+  <img src="https://img.shields.io/badge/Status-Active-success.svg" alt="Status Active" />
+  <img src="https://img.shields.io/badge/Automation-Make%20(Integromat)-blue.svg" alt="Make" />
+  <img src="https://img.shields.io/badge/Integration-Gmail%20%7C%20Telegram-orange.svg" alt="Integrations" />
+</div>
 
-A real-world automation system built to solve two practical problems faced during job search outreach - built with zero manual intervention and zero extra cost.
+---
 
+## 🎯 The Vision
+This project wasn't built as an assignment or tutorial. It was born out of a real-world frustration: **Sending 10+ personalized referral emails daily with Resume and LOR attachments is tedious, slow, and error-prone.** 
 
-Overview
+Instead of waiting for the perfect resume, I built a zero-cost automation ecosystem to do the heavy lifting for me. 
 
-This project consists of two automation workflows designed and built independently to streamline the job referral outreach process:
+---
 
-Automated Email Referral Workflow - Sends personalized referral request emails with attachments automatically
-HR Reply Tracker - Monitors Gmail for HR replies and sends real-time Telegram notifications instantly
+## ⚡ Workflow 1: Automated Email Referral System
 
-Both were born out of real frustrations during daily job search outreach - and solved by shipping working automation systems.
+### ❌ The Problem
+Manually drafting emails, attaching resumes/LORs from Google Drive, and personalizing the Name, Role, and Company for every recruiter took hours.
 
-⚡ Workflow 1 - Automated Email Referral System
+### ✅ The Solution
+A webhook-triggered automation pipeline that scales to infinite recipients instantly.
 
-Problem
-Sending 10+ personalized referral emails daily with Resume and LOR attachments was repetitive, time-consuming, and error-prone.
+```mermaid
+graph LR
+    A[Webhook Trigger] -->|Injects Data| B(Data Processor)
+    B -->|Fetch Name/Role/Company| C{Google Drive}
+    C -->|Fetch Resume + LOR| D[Email Engine]
+    D -->|Format & Personalize| E((Gmail Dispatch))
+```
 
-✅ Solution
-A webhook-triggered automation pipeline that:
+**Key Features:**
+*   **Zero Manual Effort:** Once the webhook receives data, the rest is autonomous.
+*   **Dynamic Personalization:** Every email is uniquely tailored to the recipient.
+*   **Smart Attachments:** Automatically pulls the latest Resume and Letter of Recommendation.
 
-Accepts recipient details via a Webhook
-Dynamically personalizes the email (Name, Role, Company)
-Attaches Resume and Letter of Recommendation automatically
-Dispatches the email via Gmail integration
+<br>
+<div align="center">
+  <img src="./Email referral workflow.png" alt="Email Workflow Diagram" width="700"/>
+</div>
 
-🔧 Tech Stack
-ToolPurposeMake (Integromat)Automation platformWebhooksInput triggerGmail IntegrationEmail deliveryHTTP ModulesAPI communicationGoogle DriveFile retrieval (Resume + LOR)
+---
 
-Workflow Diagram
-Webhook Trigger
-      ↓
-Data Processing (Name, Role, Company)
-      ↓
-File Retrieval (Resume + LOR from Drive)
-      ↓
-Email Personalization
-      ↓
-Gmail Dispatch ✅
+## 📊 Workflow 2: Real-time HR Reply Tracker
 
-![Email Referral Workflow](./Email referral workflow.png)
+### ❌ The Problem
+When sending hundreds of cold emails, Gmail groups replies into messy threads. Searching through endless conversations to find actual HR replies is chaotic and risks missing interview opportunities.
 
-🌟 Key Highlights
+### ✅ The Solution
+A highly intelligent filtering system that watches the inbox, filters out auto-replies, and pings my phone via Telegram the exact second a real human recruiter replies.
 
-✅ Zero manual effort after setup
-✅ Dynamic personalization per recipient
-✅ Automatic attachment handling
-✅ Scalable to any number of recipients
-✅ Professional and structured email format every time
+```mermaid
+graph TD
+    A[New Gmail Received] --> B{Check Google Sheets Contacts}
+    B -->|Matches HR Database| C{Spam/Bot Filter}
+    C -->|Real Human Reply| D[Telegram Bot API]
+    D -->|Instant Ping| E((Phone Notification))
+    C -->|Auto-reply| F[Ignore]
+```
 
+**Key Features:**
+*   **Zero Delay:** Instant Telegram push notification via BotFather.
+*   **Noise Filtering:** Actively ignores 'no-reply' emails, bots, and system alerts.
+*   **Zero Cost:** Built entirely using free-tier tools and APIs.
 
-📊 Workflow 2 - HR Reply Tracker (Zero Cost)
-🎯 Problem
-When sending referral emails at scale, tracking which HRs replied became chaotic. Gmail groups replies into threads, forcing manual scrolling through hundreds of conversations - slow, confusing, and error-prone.
+<br>
+<div align="center">
+  <img src="./Notification Triggering Workflow.png" alt="Notification Workflow Diagram" width="700"/>
+</div>
 
-✅ Solution
-An automated reply monitoring system that:
+---
 
-Monitors incoming Gmail for new emails
-Cross-checks sender against a Google Sheets contact list
-Filters out bots, no-reply, and system-generated emails
-Fires an instant Telegram notification when a real HR replies
+## 🛠️ Tech Stack & Integrations
 
-Tech Stack
-ToolPurposeMake (Integromat)Automation platformGmail IntegrationEmail monitoringGoogle SheetsContact list storageHTTP ModuleAPI requestsTelegram Bot (BotFather)Real-time notifications
+| Technology | Purpose |
+| :--- | :--- |
+| **Make (Integromat)** | Visual automation platform orchestrating the logic |
+| **Webhooks / HTTP** | API communication & data injection triggers |
+| **Gmail API** | Inbox monitoring and automated dispatching |
+| **Google Drive** | Secure cloud retrieval for attachments |
+| **Google Sheets** | Database for contact matching & verification |
+| **Telegram API** | BotFather integration for real-time mobile push notifications |
 
-Workflow Diagram
-Gmail - New Email Received
-      ↓
-Check Sender vs Google Sheets Contact List
-      ↓
-Filter: Is it a real HR? (Remove no-reply/bots)
-      ↓
-Match Found?
-      ↓
-Telegram Notification Triggered ✅
-"HR replied: hr@company.com"
+---
 
-![Notification Triggering Workflow](./Notification Triggering Workflow.png)
+## 👨‍💻 About The Developer
 
-As telegram give bot as free using BotFather i have created seperated Bot for notification triggering mechaniscm.
+> *"I didn't wait for the perfect resume. I built something instead."*
 
-🌟 Key Highlights
+**Vivek Kotha**  
+*Final-year B.Tech Student | CSE (AI & ML) @ CMR College of Engineering & Technology*
 
-✅ Real-time notifications - zero delay
-✅ No missed replies
-✅ Noise filtered - only real HR replies trigger alerts
-✅ Cost: ₹0 - built entirely with free tools
-✅ Scalable for large-scale outreach
+**💼 Experience**
+*   **Backend Developer Intern** - Evangelion Solutions (Jan 2026 - Mar 2026)
+*   **Backend Intern Trainee** - SyntecxHub (Dec 2025 - Jan 2026)
 
+**💻 Core Skills**
+*   **Frontend:** React, JavaScript (ES6+), HTML5, CSS3
+*   **Backend:** Node.js, Express.js, RESTful APIs, EJS
+*   **Databases:** MongoDB, Firebase Firestore, SQL
 
- Why I Built This
-Both projects weren't assignments or tutorials.
-They were real problems I faced during my own job search - and I solved them by building and shipping working solutions.
-
-"I didn't wait for the perfect resume. I built something instead."
-
-
-About Me
-Vivek Kotha
-Final-year B.Tech Student | CSE (AI & ML)
-CMR College of Engineering & Technology, Hyderabad
-💼 Experience
-
-🔹 Backend Developer Intern - Evangelion Solutions (Jan 2026 - Mar 2026)
-🔹 Backend Intern Trainee - SyntecxHub (Dec 2025 - Jan 2026)
-
-Tech Stack
-
-Frontend: React, JavaScript (ES6+), HTML5, CSS3
-Backend: Node.js, Express.js, RESTful APIs, EJS
-Databases: MongoDB, Firebase Firestore, SQL
-Tools: Git, Postman, VS Code, Make (Integromat)
-
-📫 Contact
-
-📧 kothavivek55@gmail.com
-📱 +91-8074530982
- linkedin.com/in/vivekkotha/
+<div align="center">
+  <a href="mailto:kothavivek55@gmail.com"><img src="https://img.shields.io/badge/Email-kothavivek55%40gmail.com-red?style=for-the-badge&logo=gmail" /></a>
+  <a href="https://linkedin.com/in/vivekkotha/"><img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" /></a>
+</div>
